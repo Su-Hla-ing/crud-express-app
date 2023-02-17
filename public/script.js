@@ -5,7 +5,7 @@ const userEmail = document.querySelector(".user_email");
 const button = document.querySelector("button");
 
 const api_Url = localStorage.getItem("ApiUrl");
-console.log(api_Url)
+ console.log(api_Url)
 let data;
 
 // Create User container
@@ -32,8 +32,8 @@ const inputValueLess = () => {
 const getData = async () => {
    
     if(api_Url){
-        const response = await fetch(`${api_Url}/users`);
-        data = await response.json();
+        const responseData = await fetch(`${api_Url}/users`)
+        data = await responseData.json();
         console.log(data);
         createUser();
     }else{
