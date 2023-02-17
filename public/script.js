@@ -30,7 +30,7 @@ const inputValueLess = () => {
 
 // Get method
 const getData = async () => {
-    
+   
     if(api_Url){
         const response = await fetch(`${api_Url}/users`);
         data = await response.json();
