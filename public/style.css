@@ -1,0 +1,28 @@
+.form_container, .usersContainer{
+    width: 50%;
+    margin: 0 auto;
+    
+}
+.form_container .button{
+    display: flex;
+    justify-content: center;
+   margin-top: 1.5rem;
+}
+
+
+.usersContainer{
+ 
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+   
+}
+
+.user{
+    display: inline-block;
+    text-align: center;
+}
+h2{
+    display: inline;
+  
+}
