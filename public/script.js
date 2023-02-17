@@ -53,8 +53,9 @@ const formSubmit = () => {
         })
     }
   
-    createUser();
+   
     postData();
+    createUser();
     getData();
     inputValueLess();
 }
