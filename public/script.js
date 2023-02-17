@@ -28,7 +28,20 @@ const inputValueLess = () => {
     userEmail.value = '';
 }
 
-
+// Get method
+const getData = async () => {
+   
+    if(api_Url){
+        const response = await fetch(`${api_Url}/users`);
+        data = await response.json();
+        console.log(data);
+        createUser();
+    }else{
+        window.location.href = "/api"
+    }
+   
+}
+getData();
 
 
 // Post method
@@ -42,7 +55,7 @@ const formSubmit = () => {
   
     createUser();
     postData();
-    // getData();
+    getData();
     inputValueLess();
 }
 
