@@ -26,3 +26,12 @@ h2{
     display: inline;
   
 }
+.modal-footer{
+    border-top: none;
+}
+.color-red{
+  color: rgb(172, 15, 15);
+}
+.message{
+    font-weight: 600;
+}
