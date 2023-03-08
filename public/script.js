@@ -109,9 +109,8 @@ const deleteUser = async () => {
         headers: { "content-type": "application/json" },
         body: JSON.stringify(...userdata)
     });
-    
+
     getData();
-    
     usersContainer.innerHTML = '';
     
    
