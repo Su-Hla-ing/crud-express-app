@@ -66,12 +66,26 @@ app.put('/api/users', (req: Request, res: Response) => {
     
 });
 
-app.delete('/api/users', (req:Request, res:Response) => {
+app.delete('/api/users/:email', (req:Request, res:Response) => {
+
+    const userEmail = req.params.email;
+    console.log(userEmail);
+
+    const isEmail = users.findIndex(user => user.email === userEmail)
+    console.log(isEmail)
+    if(isEmail !== -1){
+        
+        users.splice(isEmail, 1);
+        res.send(users)
+    }else {
+        res.status(404).send('User Forms are not found');
+    }
+    
    
-    const isEmail = users.find(user => user.email === req.body.email)
+    /*const isEmail = users.filter(user => user.email === req.body.email)
     console.log(isEmail)
     if(isEmail){
-        const indexUser = users.indexOf(isEmail);
+        const indexUser = users.indexOf(isEmail[0]);
         console.log(indexUser)
         users.splice(indexUser, 1);
         
@@ -80,7 +94,7 @@ app.delete('/api/users', (req:Request, res:Response) => {
         res.send(users)
     }else{
         res.send("<h1>Pages are not found</h1>")
-    }
+    }*/
 })
 
 app.listen(3000, () => {

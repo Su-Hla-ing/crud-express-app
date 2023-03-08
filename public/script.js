@@ -11,6 +11,7 @@ const api_Url = localStorage.getItem("ApiUrl");
  console.log(api_Url)
 let userdata;
 
+
 // Create User container
 const createUser = () => {
     for (let i = 0; i < userdata.length; i++) {
@@ -39,6 +40,7 @@ const getData = async () => {
         const responseData = await fetch(`${api_Url}/users`)
         userdata = await responseData.json();
         console.log(userdata);
+        
         createUser();
     }else{
         window.location.href = "/api"
@@ -94,16 +96,23 @@ const update = async () => {
     updateUsername.value = '';
 };
 
+
 // Delete Method
+let userObjectEmail;
 const deleteUser = async () => {
-    console.log("hello frontend")
-    const response = await fetch (`${api_Url}/users`, {
+    for (let i = 0; i < userdata.length; i++) {
+        userObjectEmail = userdata[i].email;
+    }
+   console.log(userObjectEmail)
+    const response = await fetch (`${api_Url}/users/${userObjectEmail}`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(...userdata)
     });
-    console.log(...userdata)
+    
     usersContainer.innerHTML = '';
     getData();
+    
+   
 }
 
