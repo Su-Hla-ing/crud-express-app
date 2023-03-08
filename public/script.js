@@ -110,8 +110,9 @@ const deleteUser = async () => {
         body: JSON.stringify(...userdata)
     });
     
-    usersContainer.innerHTML = '';
     getData();
+    
+    usersContainer.innerHTML = '';
     
    
 }
